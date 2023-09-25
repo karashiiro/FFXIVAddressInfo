@@ -4,9 +4,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVAddressInfo", "FFXIVAd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVAddressInfo.SourceGeneration", "FFXIVAddressInfo.SourceGeneration\FFXIVAddressInfo.SourceGeneration.csproj", "{DE480DF9-F22A-4F6C-90B9-4FB26C2600DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVAddressInfo.SourceGeneration.Tests", "FFXIVAddressInfo.SourceGeneration.Tests\FFXIVAddressInfo.SourceGeneration.Tests.csproj", "{E080F246-9B8C-4566-9870-F0686E27A2FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVAddressInfo.DataExtractor.Tests", "FFXIVAddressInfo.DataExtractor.Tests\FFXIVAddressInfo.DataExtractor.Tests.csproj", "{E080F246-9B8C-4566-9870-F0686E27A2FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVAddressInfo.Tests", "FFXIVAddressInfo.Tests\FFXIVAddressInfo.Tests.csproj", "{5E8D6EFD-1E2C-4748-829A-9C27BDBC7645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVAddressInfo.DataExtractor", "FFXIVAddressInfo.DataExtractor\FFXIVAddressInfo.DataExtractor.csproj", "{6B8407B5-68C1-4891-A329-E02F67F35202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFXIVAddressInfo.Shared", "FFXIVAddressInfo.Shared\FFXIVAddressInfo.Shared.csproj", "{6976AADB-FC3C-45AC-ABFC-9CBC562E6A3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +34,13 @@ Global
 		{5E8D6EFD-1E2C-4748-829A-9C27BDBC7645}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E8D6EFD-1E2C-4748-829A-9C27BDBC7645}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E8D6EFD-1E2C-4748-829A-9C27BDBC7645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B8407B5-68C1-4891-A329-E02F67F35202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B8407B5-68C1-4891-A329-E02F67F35202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B8407B5-68C1-4891-A329-E02F67F35202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B8407B5-68C1-4891-A329-E02F67F35202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6976AADB-FC3C-45AC-ABFC-9CBC562E6A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6976AADB-FC3C-45AC-ABFC-9CBC562E6A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6976AADB-FC3C-45AC-ABFC-9CBC562E6A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6976AADB-FC3C-45AC-ABFC-9CBC562E6A3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

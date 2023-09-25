@@ -17,7 +17,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FFXIVAddressInfo.SourceGeneration\FFXIVAddressInfo.SourceGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\FFXIVAddressInfo.Shared\FFXIVAddressInfo.Shared.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\FFXIVAddressInfo.SourceGeneration\FFXIVAddressInfo.SourceGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
     <ItemGroup>

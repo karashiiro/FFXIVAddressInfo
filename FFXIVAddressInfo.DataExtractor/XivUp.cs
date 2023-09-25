@@ -1,9 +1,10 @@
 ﻿using System.Net;
+using FFXIVAddressInfo.Shared;
 using HtmlAgilityPack;
 
-namespace FFXIVAddressInfo.SourceGeneration;
+namespace FFXIVAddressInfo.DataExtractor;
 
-internal class XivUp
+public class XivUp
 {
     public static async Task<IReadOnlyDictionary<string, DataCenterInfo>> GetDataCenterInfo()
     {
@@ -28,7 +29,9 @@ internal class XivUp
                 var (node, dcName) = data;
                 var realms = node.ChildNodes.Where(n => n.HasClass("realm")).Select(GetRealmAddress).ToList();
                 var lobby = realms.First();
-                var rest = realms.Skip(1).Select(IPAddress.Parse).ToList();
+
+                // Parse the address to validate it, and then convert it back to a string for serialization later
+                var rest = realms.Skip(1).Select(IPAddress.Parse).Select(addr => addr.ToString()).ToArray();
                 return (DataCenterName: dcName!, Lobby: lobby, Servers: rest);
             })
             .Select(data => new DataCenterInfo(data.DataCenterName, data.Lobby, data.Servers))

@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace FFXIVAddressInfo.SourceGeneration.Tests;
+namespace FFXIVAddressInfo.DataExtractor.Tests;
 
 public partial class XivUpTests
 {
@@ -20,7 +20,7 @@ public partial class XivUpTests
             Assert.NotNull(info.Addresses);
             Assert.NotEmpty(info.Addresses);
 
-            var ipCommonBytes = info.Addresses[0].GetAddressBytes().Take(3).Select(b => Convert.ToString(b));
+            var ipCommonBytes = info.Addresses[0].Split('.').Take(3);
             var ipStart = string.Join('.', ipCommonBytes);
             Assert.All(info.Addresses, addr =>
             {

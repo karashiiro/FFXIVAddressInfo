@@ -1,5 +1,7 @@
 ﻿using System.Collections.Immutable;
-using System.Net;
+using System.Reflection;
+using System.Text.Json;
+using FFXIVAddressInfo.Shared;
 using Microsoft.CodeAnalysis;
 
 namespace FFXIVAddressInfo.SourceGeneration;
@@ -7,12 +9,18 @@ namespace FFXIVAddressInfo.SourceGeneration;
 [Generator(LanguageNames.CSharp)]
 internal sealed class GameAddressGenerator : ISourceGenerator
 {
+    private const string Tab = "    ";
+
     private IReadOnlyDictionary<string, DataCenterInfo>
         _addressInfo = ImmutableDictionary<string, DataCenterInfo>.Empty;
 
     public void Initialize(GeneratorInitializationContext context)
     {
-        _addressInfo = XivUp.GetDataCenterInfo().Result;
+        var assembly = Assembly.GetAssembly(typeof(GameAddressGenerator));
+        var stream = assembly?.GetManifestResourceStream("FFXIVAddressInfo.SourceGeneration.data.json");
+        var data = stream ?? throw new InvalidOperationException("Could not load embedded resource.");
+        _addressInfo = JsonSerializer.Deserialize<IReadOnlyDictionary<string, DataCenterInfo>>(data) ??
+                       ImmutableDictionary<string, DataCenterInfo>.Empty;
     }
 
     public void Execute(GeneratorExecutionContext context)
@@ -40,16 +48,16 @@ internal sealed class GameAddressGenerator : ISourceGenerator
         return
             $"""
              public static readonly global::FFXIVAddressInfo.IDataCenterAddresses {info.Name} =
-                     new global::FFXIVAddressInfo.DataCenterInfo("{info.LobbyServer}", {RenderServerAddresses(info.Addresses)});
+             {Tab}{Tab}new global::FFXIVAddressInfo.DataCenterInfo("{info.LobbyServer}", {RenderServerAddresses(info.Addresses)});
              """;
     }
 
-    private static string RenderServerAddresses(IEnumerable<IPAddress> addresses)
+    private static string RenderServerAddresses(IEnumerable<string> addresses)
     {
         var addressInit = string.Join(", ",
                               addresses.Select(addr =>
-                                  "\n            " + $"""global::System.Net.IPAddress.Parse("{addr}")""")) +
-                          "\n        ";
+                                  $"\n{Tab}{Tab}{Tab}" + $"""global::System.Net.IPAddress.Parse("{addr}")""")) +
+                          $"\n{Tab}{Tab}";
 
         //lang=c#
         return $"new global::System.Net.IPAddress[] {{{addressInit}}}";

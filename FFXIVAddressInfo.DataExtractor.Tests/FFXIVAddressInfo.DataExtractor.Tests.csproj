@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FFXIVAddressInfo.DataExtractor\FFXIVAddressInfo.DataExtractor.csproj" />
       <ProjectReference Include="..\FFXIVAddressInfo.SourceGeneration\FFXIVAddressInfo.SourceGeneration.csproj" />
     </ItemGroup>
 
