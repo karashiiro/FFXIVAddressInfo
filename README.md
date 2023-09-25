@@ -1,5 +1,5 @@
 # FFXIVAddressInfo
-A C# package with FFXIV data center addresses.
+A C# package with FFXIV data center addresses, scraped from [Is XIV Up](https://is.xivup.com/adv).
 
 ## Installation
 `Install-Package FFXIVAddressInfo` or other methods as described [here](https://www.nuget.org/packages/FFXIVAddressInfo/).
