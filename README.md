@@ -1,2 +1,2 @@
 # FFXIVAddressInfo
-A C# package with FFXIV datacenter addresses.
+A C# package with FFXIV data center addresses.
