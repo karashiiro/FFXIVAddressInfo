@@ -11,7 +11,7 @@ Consider setting your installed version to `1.0.*` to get automatic updates as s
 ```csharp
 Console.WriteLine(DataCenters.Aether.LobbyServer);
 
-for (const address of DataCenters.Aether.Addresses)
+for (var address of DataCenters.Aether.Addresses)
 {
     Console.WriteLine(address.ToString());
 }
