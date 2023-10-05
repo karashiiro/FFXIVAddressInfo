@@ -10,7 +10,7 @@ public partial class DataCentersTests
         var currentDataCenters = new[]
         {
             DataCenters.Aether, DataCenters.Primal, DataCenters.Crystal, DataCenters.Dynamis,
-            DataCenters.Chaos, DataCenters.Crystal, DataCenters.Crystal, DataCenters.Materia,
+            DataCenters.Chaos, DataCenters.Light,
             DataCenters.Elemental, DataCenters.Gaia, DataCenters.Mana, DataCenters.Meteor,
         };
 
